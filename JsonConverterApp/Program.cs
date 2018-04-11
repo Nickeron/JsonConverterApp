@@ -17,11 +17,11 @@ namespace JsonConverterApp
             string title = Console.ReadLine();
             Console.Clear();
             Console.Write("\n\n\tNow write the body!\n\n\tBody: ");
-            BlogPost georgePost = new BlogPost(newUser, title, Console.ReadLine());
+            BlogPost usersPost = new BlogPost(newUser, title, Console.ReadLine());
 
-            List<BlogPost> blogs = new List<BlogPost> { georgePost };
+            List<BlogPost> blogs = new List<BlogPost> { usersPost };
             Console.Clear();
-            Console.WriteLine("\n\n\tThis is your JSON blog post! ;-)\n");
+            Console.WriteLine("\n\n\tThis is your blog post information in JSON! ;-)\n");
             Console.WriteLine(Converter.ConvertToJSON(blogs));
             Console.ReadKey();
         }
