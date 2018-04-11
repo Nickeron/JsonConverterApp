@@ -59,7 +59,7 @@ namespace JsonConverterApp
         {
             foreach (BlogPost post in blogPosts)
             {
-                if (post.Id.ToString() == ID)
+                if (post.Id.ToString().Equals(ID))
                 {
                     return post;
                 }
@@ -75,7 +75,7 @@ namespace JsonConverterApp
                 JsonResult.Append("{\n  \"id\": " + $"\"{post.Id}\",");
                 JsonResult.Append("\n  \"user\": \n  {");
                 JsonResult.Append("\n    \"id\": " + $"\"{post.User.Id}\",");
-                JsonResult.Append("\n    \"username\": " + $"\"{post.User.Username}\",");
+                JsonResult.Append("\n    \"username\": " + $"\"{post.User.Username}\"");
                 JsonResult.Append("\n  },\n  \"title\": " + $"\"{post.Title}\",");
                 JsonResult.Append("\n  \"body\": " + $"\"{post.Body}\"" + "\n}");
             }
