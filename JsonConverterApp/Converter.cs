@@ -1,10 +1,72 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace JsonConverterApp
 {
     class Converter
     {
+        public static List<Guid> BlogIDs(List<BlogPost> blogPosts, User writer)
+        {
+            List<Guid> wantedBlogPostsIds = new List<Guid>();
+            foreach (BlogPost post in blogPosts)
+            {
+                wantedBlogPostsIds.Add(post.Id);
+            }
+            return wantedBlogPostsIds;
+        }
+
+        public static List<BlogPost> BlogsFromWriter(List<BlogPost> blogPosts, User writer)
+        {
+            List<BlogPost> wantedBlogPosts = new List<BlogPost>();
+            foreach (BlogPost post in blogPosts)
+            {
+                if (post.User.Id == writer.Id)
+                {
+                    wantedBlogPosts.Add(post);
+                }
+            }
+            return wantedBlogPosts;
+        }
+
+        public static List<BlogPost> BlogsWithLongTitles(List<BlogPost> blogPosts)
+        {
+            List<BlogPost> wantedBlogPosts = new List<BlogPost>();
+            foreach (BlogPost post in blogPosts)
+            {
+                if (post.Title.Split(' ').Length >= 2)
+                {
+                    wantedBlogPosts.Add(post);
+                }
+            }
+            return wantedBlogPosts;
+        }
+
+        public static List<BlogPost> BlogsWithKeyword(List<BlogPost> blogPosts, string wordSearched)
+        {
+            List<BlogPost> wantedBlogPosts = new List<BlogPost>();
+            foreach (BlogPost post in blogPosts)
+            {
+                if (post.Body.Contains(wordSearched))
+                {
+                    wantedBlogPosts.Add(post);
+                }
+            }
+            return wantedBlogPosts;
+        }
+
+        public static BlogPost FindBlogID(List<BlogPost> blogPosts, string ID)
+        {
+            foreach (BlogPost post in blogPosts)
+            {
+                if (post.Id.ToString() == ID)
+                {
+                    return post;
+                }
+            }
+            return null;
+        }
+
         public static string ConvertToJSON(List<BlogPost> BlogListToConvert)
         {
             StringBuilder JsonResult = new StringBuilder();
