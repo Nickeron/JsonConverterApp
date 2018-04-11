@@ -22,7 +22,7 @@ namespace JsonConverterApp
             List<BlogPost> blogs = new List<BlogPost> { usersPost };
             Console.Clear();
             Console.WriteLine("\n\n\tThis is your blog post information in JSON! ;-)\n");
-            Console.WriteLine(Converter.ConvertToJSON(blogs));
+            Console.WriteLine(BlogManager.ConvertToJSON(blogs));
             Console.ReadKey();
         }
     }

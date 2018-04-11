@@ -4,9 +4,9 @@ using System.Text;
 
 namespace JsonConverterApp
 {
-    class Converter
+    class BlogManager
     {
-        public static List<Guid> BlogIDs(List<BlogPost> blogPosts, User writer)
+        public static List<Guid> GetBlogIDs(List<BlogPost> blogPosts, User writer)
         {
             List<Guid> wantedBlogPostsIds = new List<Guid>();
             foreach (BlogPost post in blogPosts)
@@ -16,7 +16,7 @@ namespace JsonConverterApp
             return wantedBlogPostsIds;
         }
 
-        public static List<BlogPost> BlogsFromWriter(List<BlogPost> blogPosts, User writer)
+        public static List<BlogPost> GetBlogsFromWriter(List<BlogPost> blogPosts, User writer)
         {
             List<BlogPost> wantedBlogPosts = new List<BlogPost>();
             foreach (BlogPost post in blogPosts)
@@ -29,7 +29,7 @@ namespace JsonConverterApp
             return wantedBlogPosts;
         }
 
-        public static List<BlogPost> BlogsWithLongTitles(List<BlogPost> blogPosts)
+        public static List<BlogPost> GetBlogsWithLongTitles(List<BlogPost> blogPosts)
         {
             List<BlogPost> wantedBlogPosts = new List<BlogPost>();
             foreach (BlogPost post in blogPosts)
@@ -42,7 +42,7 @@ namespace JsonConverterApp
             return wantedBlogPosts;
         }
 
-        public static List<BlogPost> BlogsWithKeyword(List<BlogPost> blogPosts, string wordSearched)
+        public static List<BlogPost> GetBlogsWithKeyword(List<BlogPost> blogPosts, string wordSearched)
         {
             List<BlogPost> wantedBlogPosts = new List<BlogPost>();
             foreach (BlogPost post in blogPosts)
@@ -55,7 +55,7 @@ namespace JsonConverterApp
             return wantedBlogPosts;
         }
 
-        public static BlogPost FindBlogID(List<BlogPost> blogPosts, string ID)
+        public static BlogPost FindBlogWithID(List<BlogPost> blogPosts, string ID)
         {
             foreach (BlogPost post in blogPosts)
             {
