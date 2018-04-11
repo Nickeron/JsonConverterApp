@@ -7,11 +7,21 @@ namespace JsonConverterApp
     {
         static void Main(string[] args)
         {
-            User george = new User("George");
-            BlogPost georgePost = new BlogPost(george, "Hi everybody!", "This is Goerge!");
+            Console.Write("\n\n\tHi! Give me your name please.\n\n\tName: ");
+            User newUser = new User(Console.ReadLine());
+
+            Console.Clear();
+            Console.Write($"\n\n\tHi! {newUser.Username} You are about to " +
+                "write a blog and I will convert it to JSON.\n\n\tNow give me the title please" +
+                "\n\n\tTitle: ");
+            string title = Console.ReadLine();
+            Console.Clear();
+            Console.Write("\n\n\tNow write the body!\n\n\tBody: ");
+            BlogPost georgePost = new BlogPost(newUser, title, Console.ReadLine());
 
             List<BlogPost> blogs = new List<BlogPost> { georgePost };
-
+            Console.Clear();
+            Console.WriteLine("\n\n\tThis is your JSON blog post! ;-)\n");
             Console.WriteLine(Converter.ConvertToJSON(blogs));
             Console.ReadKey();
         }
